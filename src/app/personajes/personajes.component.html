@@ -1,0 +1,46 @@
+
+<head>
+    <title>
+        STAR WARS WEB
+    </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body style="background-color: rgb(0, 0, 0);">
+<img style="display: block; margin: 30px auto;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/640px-Star_Wars_Logo.svg.png">
+
+<div class="container">
+<div style="text-align: center;">
+    <h3 style="color: rgb(205, 250, 6); font-style:italic; margin: 30px;">Bienvenido a la Swapi!!!</h3>
+
+
+<button class="btn btn-warning" (click)="onClickActivar()">
+    <div [ngSwitch]="activo">
+        <p *ngSwitchCase="true">Esconder</p>
+        <p *ngSwitchCase="false">Mostrar</p>
+    </div>
+</button>
+
+<br><br>
+<br><br>
+
+<div *ngIf="consultando">Cargando ...</div>
+
+<div *ngIf="!consultando">
+
+    <div *ngIf="activo">
+        
+            <li style="color: rgb(253, 253, 253)" *ngFor="let p of personajes" (click)="onRemovePersonaje(p)">{{p}}</li>
+        
+    </div>
+    <div *ngIf="activo==false">
+        <p></p>
+    </div>
+
+</div>
+
+<br><br>
+<br><br>
+
+
+
